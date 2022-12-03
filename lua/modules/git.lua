@@ -7,7 +7,7 @@ local Plug = fn["plug#"]
 -- Install packages
 M.install = function()
   Plug("tpope/vim-fugitive")
-  Plug("airblade/vim-gitgutter")
+  Plug('lewis6991/gitsigns.nvim')
   Plug("sindrets/diffview.nvim")
 
   -- Gist
@@ -16,6 +16,7 @@ end
 
 M.init = function()
   require("diffview").setup({})
+  require('gitsigns').setup()
   Util.nkeymap("<leader>go", ":DiffviewOpen<CR>")
   Util.nkeymap("<leader>gc", ":DiffviewClose<CR>")
 end
