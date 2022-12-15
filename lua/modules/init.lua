@@ -2,11 +2,11 @@ local M = {}
 
 local common = require 'modules.common'
 local theme = require 'modules.theme'
+local search = require 'modules.search'
 local project = require 'modules.project'
 local tmux = require 'modules.tmux'
 local git = require 'modules.git'
 local doc = require 'modules.doc'
-local search = require 'modules.search'
 local ide = require 'modules.ide'
 
 -- langs
@@ -19,11 +19,11 @@ local clojure = require 'modules.lang.clojure'
 M.install = function ()
   common.install()
   theme.install()
+  search.install()
   project.install()
   tmux.install()
   git.install()
   doc.install()
-  search.install()
   ide.install()
 
   -- langs
@@ -37,11 +37,11 @@ end
 M.init = function ()
   common.init()
   theme.init()
+  search.init()
   project.init()
   tmux.init()
   git.init()
   doc.init()
-  search.init()
   ide.init()
 
   -- langs

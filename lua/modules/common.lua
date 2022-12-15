@@ -31,12 +31,13 @@ M.install = function()
   Plug("easymotion/vim-easymotion")
 
   Plug("tpope/vim-repeat")
-  Plug("phanviet/nvim-cursor")
   Plug("mg979/vim-visual-multi", { branch = "master" })
 
   -- Code folding
   Plug("kevinhwang91/promise-async")
   Plug("kevinhwang91/nvim-ufo")
+
+  Plug("akinsho/toggleterm.nvim", {tag="*"})
 end
 
 M.init = function()
@@ -49,11 +50,6 @@ M.init = function()
   Util.vkeymap("<leader>a= :Tabularize /=<CR>")
   Util.vkeymap("<leader>a: :Tabularize /:<CR>")
   Util.vkeymap("<leader>a, :Tabularize /,<CR>")
-
-  require("nvim-cursor").setup({
-    normalModeColor = "blue",
-    insertModeColor = "blue",
-  })
 
   -- Tree-sitter configuration
   require("nvim-treesitter.configs").setup({
@@ -79,6 +75,9 @@ M.init = function()
   opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
   opt.foldlevelstart = 99
   opt.foldenable = true
+
+
+  require("toggleterm").setup()
 end
 
 return M
