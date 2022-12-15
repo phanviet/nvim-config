@@ -32,9 +32,9 @@ M.init = function()
 
   require("poimandres").setup({})
   -- cmd 'colorscheme poimandres'
-  -- cmd 'colorscheme badwolf'
+  cmd 'colorscheme badwolf'
 
-  cmd(":highlight Pmenu ctermbg=black guibg=black")
+  -- cmd(":highlight Pmenu ctermbg=black guibg=black")
 end
 
 return M
