@@ -26,7 +26,6 @@ M.install = function()
 
   -- LSP
   Plug("neovim/nvim-lspconfig")
-  Plug("williamboman/nvim-lsp-installer")
   Plug("hrsh7th/cmp-nvim-lsp")
   Plug("hrsh7th/cmp-buffer")
   Plug("hrsh7th/cmp-path")
@@ -36,6 +35,9 @@ M.install = function()
   Plug("saadparwaiz1/cmp_luasnip")
   Plug("windwp/nvim-autopairs")
   Plug("glepnir/lspsaga.nvim")
+
+  Plug("williamboman/mason.nvim")
+  Plug("williamboman/mason-lspconfig.nvim")
 
   -- REPL
   Plug("jpalardy/vim-slime")
@@ -66,22 +68,16 @@ M.init = function()
   -- LSP
   --------------------------------------------------
   -- local lspformat = require("lsp-format")
+  local mason = require("mason")
   local luasnip = require("luasnip")
   local cmp = require("cmp")
   -- lspformat.setup({
   --   lua = { tab_width = 4 },
   -- })
 
-  require("nvim-lsp-installer").setup({
-    automatic_installation = true,
-    ui = {
-      icons = {
-        server_installed = "✓",
-        server_pending = "➜",
-        server_uninstalled = "✗",
-      },
-    },
-  })
+  -- Manage external editor tooling such as LSP servers, DAP servers, linters, and formatters through a single interface
+  mason.setup()
+  require("mason-lspconfig").setup()
 
   -- Auto completion
   cmp.setup({
@@ -175,6 +171,7 @@ M.init = function()
     "terraformls", -- terraform
     "bashls", -- bash
     "yamlls", -- yaml
+    "solang", -- solidity
   }
   local diagnostic = vim.diagnostic
   local lsp = vim.lsp
