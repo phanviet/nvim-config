@@ -12,6 +12,7 @@ M.install = function()
   -- Syntax
   Plug("sheerun/vim-polyglot")
   Plug("sbdchd/neoformat")
+  -- Plug("lukas-reineke/lsp-format.nvim")
   Plug("luochen1990/rainbow")
 
   -- Testing
@@ -60,12 +61,16 @@ M.init = function()
   g.slime_default_config = { socket_name = "default", target_pane = ":.1" }
 
   -- Auto format
-  Util.nkeymap('<space>fm', ':Neoformat<CR>')
+  Util.nkeymap("<space>fm", ":Neoformat<CR>")
 
   -- LSP
   --------------------------------------------------
+  -- local lspformat = require("lsp-format")
   local luasnip = require("luasnip")
   local cmp = require("cmp")
+  -- lspformat.setup({
+  --   lua = { tab_width = 4 },
+  -- })
 
   require("nvim-lsp-installer").setup({
     automatic_installation = true,
@@ -183,6 +188,9 @@ M.init = function()
     -- Enable completion triggered by <c-x><c-o>
     api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
+    -- autoformat
+    -- lspformat.on_attach(client)
+
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -200,7 +208,7 @@ M.init = function()
     -- Util.nkeymap('<space>rn', lsp.buf.rename, bufopts)
     -- Util.nkeymap('<space>ca', lsp.buf.code_action, bufopts)
     Util.nkeymap("gr", lsp.buf.references, bufopts)
-    Util.nkeymap("<space>f", lsp.buf.formatting, bufopts)
+    Util.nkeymap("<space>f", lsp.buf.format, bufopts)
   end
 
   local lsp_flags = {
@@ -219,7 +227,7 @@ M.init = function()
 
   require("nvim-autopairs").setup({})
   require("lspsaga").init_lsp_saga()
-  local lspsaga_diagnostic = require('lspsaga.diagnostic')
+  local lspsaga_diagnostic = require("lspsaga.diagnostic")
 
   Util.nkeymap("<leader>ca", "<cmd>Lspsaga code_action<CR>")
   Util.vkeymap("<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>")

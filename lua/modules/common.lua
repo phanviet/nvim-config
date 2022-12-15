@@ -51,8 +51,8 @@ M.init = function()
   Util.vkeymap("<leader>a, :Tabularize /,<CR>")
 
   require("nvim-cursor").setup({
-    normalModeColor = "yellow",
-    insertModeColor = "yellow",
+    normalModeColor = "blue",
+    insertModeColor = "blue",
   })
 
   -- Tree-sitter configuration

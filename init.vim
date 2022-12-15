@@ -37,6 +37,7 @@ autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
 au BufRead,BufNewFile *.yml set ft=cloudformation.yaml
 au BufNewFile,BufRead *.vtl set ft=velocity
+au BufNewFile,BufRead *.script set ft=lua
 
 lua << EOF
 require('modules').init()
