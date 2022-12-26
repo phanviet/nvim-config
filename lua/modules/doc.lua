@@ -1,7 +1,9 @@
 local M = {}
 
+local g= vim.g
 local fn = vim.fn
 local Plug = fn["plug#"]
+local HOME = os.getenv("HOME")
 
 -- Install document packages
 M.install = function()
@@ -13,8 +15,8 @@ M.init = function()
   local orgmode = require("orgmode")
   orgmode.setup_ts_grammar()
   orgmode.setup({
-    org_agenda_files = { "~/.orgs/**/*" },
-    org_default_notes_file = "~/.orgs/main.org",
+    org_agenda_files = { HOME .. "/.orgs/**/*" },
+    org_default_notes_file = HOME .. "/.orgs/main.org",
   })
 end
 

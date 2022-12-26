@@ -229,7 +229,7 @@ M.init = function()
   Util.nkeymap("<leader>ca", "<cmd>Lspsaga code_action<CR>")
   Util.vkeymap("<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>")
   Util.nkeymap("gh", "<cmd>Lspsaga lsp_finder<CR>")
-  Util.nkeymap("gr", "<cmd>Lspsaga rename<CR>")
+  Util.nkeymap("<leader>rn", "<cmd>Lspsaga rename<CR>")
   Util.nkeymap("gd", "<cmd>Lspsaga peek_definition<CR>")
 
   -- Show line diagnostics

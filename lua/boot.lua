@@ -26,7 +26,6 @@ opt.signcolumn = "yes:1"
 opt.foldmethod = "syntax"
 opt.foldlevelstart = 99
 opt.completeopt = "menu,menuone,noselect"
--- opt.background = "light"
 opt.number = true
 opt.relativenumber = true
 opt.hlsearch = true

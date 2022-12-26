@@ -37,7 +37,10 @@ M.install = function()
   Plug("kevinhwang91/promise-async")
   Plug("kevinhwang91/nvim-ufo")
 
-  Plug("akinsho/toggleterm.nvim", {tag="*"})
+  Plug("akinsho/toggleterm.nvim", { tag = "*" })
+
+  -- image
+  Plug("edluffy/hologram.nvim")
 end
 
 M.init = function()
@@ -71,13 +74,17 @@ M.init = function()
     end,
   })
 
-  opt.foldcolumn = '1'
+  opt.foldcolumn = "1"
   opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
   opt.foldlevelstart = 99
   opt.foldenable = true
 
-
   require("toggleterm").setup()
+
+  -- hologram
+  require("hologram").setup({
+    auto_display = true,
+  })
 end
 
 return M

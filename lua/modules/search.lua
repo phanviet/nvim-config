@@ -7,11 +7,11 @@ local Plug = fn["plug#"]
 -- Install packages
 M.install = function()
   -- Fuzzy Search
-  -- Plug("junegunn/fzf", {
-  --   dir = "~/.fzf",
-  --   ["do"] = "./install --all",
-  -- })
-  -- Plug("junegunn/fzf.vim")
+  Plug("junegunn/fzf", {
+    dir = "~/.fzf",
+    ["do"] = "./install --all",
+  })
+  Plug("junegunn/fzf.vim")
 
   -- General fuzzy finder
   Plug('nvim-telescope/telescope-fzf-native.nvim', {['do']='make'})
@@ -19,8 +19,8 @@ M.install = function()
 end
 
 M.init = function()
-  -- Util.nkeymap("<C-P>", ":FZF<CR>")
-  -- Util.nkeymap("<leader>b", ":Buffers<CR>")
+  Util.nkeymap("<C-P>", ":FZF<CR>")
+  Util.nkeymap("<leader>b", ":Buffers<CR>")
 
   -- Telescope
   local telescope = require('telescope')

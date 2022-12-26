@@ -59,10 +59,11 @@ M.init = function()
       },
       horizontal = {
         direction = "horizontal",
-        size = "10",
+        size = "20",
       },
       current = {
-        direction = "float",
+        direction = "horizontal",
+        size = "200"
       },
       tab = {
         direction = "tab",

@@ -2,6 +2,7 @@ local M = {}
 
 local fn = vim.fn
 local cmd = vim.cmd
+local opt = vim.opt
 
 local Plug = fn["plug#"]
 
@@ -32,9 +33,8 @@ M.init = function()
 
   require("poimandres").setup({})
   -- cmd 'colorscheme poimandres'
+  opt.background = "dark"
   cmd 'colorscheme badwolf'
-
-  -- cmd(":highlight Pmenu ctermbg=black guibg=black")
 end
 
 return M
