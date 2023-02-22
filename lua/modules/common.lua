@@ -40,7 +40,7 @@ M.install = function()
   Plug("akinsho/toggleterm.nvim", { tag = "*" })
 
   -- image
-  Plug("edluffy/hologram.nvim")
+  -- Plug("edluffy/hologram.nvim")
 end
 
 M.init = function()
@@ -82,9 +82,9 @@ M.init = function()
   require("toggleterm").setup()
 
   -- hologram
-  require("hologram").setup({
-    auto_display = true,
-  })
+  -- require("hologram").setup({
+  --   auto_display = true,
+  -- })
 end
 
 return M

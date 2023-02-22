@@ -34,7 +34,7 @@ M.install = function()
   Plug("hrsh7th/nvim-cmp")
   Plug("saadparwaiz1/cmp_luasnip")
   Plug("windwp/nvim-autopairs")
-  Plug("glepnir/lspsaga.nvim")
+  -- Plug("glepnir/lspsaga.nvim")
 
   Plug("williamboman/mason.nvim")
   Plug("williamboman/mason-lspconfig.nvim")
@@ -163,7 +163,7 @@ M.init = function()
 
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
   local lspservers = {
-    "sumneko_lua", -- lua
+    "lua_ls", -- lua
     "tsserver",
     "vimls", -- vim script
     "solargraph", -- ruby
@@ -171,7 +171,7 @@ M.init = function()
     "terraformls", -- terraform
     "bashls", -- bash
     "yamlls", -- yaml
-    "solang", -- solidity
+    "solidity", -- solidity
   }
   local diagnostic = vim.diagnostic
   local lsp = vim.lsp
@@ -223,46 +223,46 @@ M.init = function()
   end
 
   require("nvim-autopairs").setup({})
-  require("lspsaga").init_lsp_saga()
-  local lspsaga_diagnostic = require("lspsaga.diagnostic")
+  -- require("lspsaga").init_lsp_saga()
+  -- local lspsaga_diagnostic = require("lspsaga.diagnostic")
 
-  Util.nkeymap("<leader>ca", "<cmd>Lspsaga code_action<CR>")
-  Util.vkeymap("<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>")
-  Util.nkeymap("gh", "<cmd>Lspsaga lsp_finder<CR>")
-  Util.nkeymap("<leader>rn", "<cmd>Lspsaga rename<CR>")
-  Util.nkeymap("gd", "<cmd>Lspsaga peek_definition<CR>")
-
-  -- Show line diagnostics
-  Util.nkeymap("<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>")
-
-  -- Show cursor diagnostic
-  Util.nkeymap("<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>")
-
-  -- Diagnsotic jump can use `<c-o>` to jump back
-  Util.nkeymap("[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
-  Util.nkeymap("]e", "<cmd>Lspsaga diagnostic_jump_next<CR>")
-
-  -- Only jump to error
-  Util.nkeymap("[E", function()
-    lspsaga_diagnostic.goto_prev({ severity = diagnostic.severity.ERROR })
-  end)
-  Util.nkeymap("]E", function()
-    lspsaga_diagnostic.goto_next({ severity = diagnostic.severity.ERROR })
-  end)
-
-  -- Outline
-  Util.nkeymap("<leader>o", "<cmd>LSoutlineToggle<CR>")
-
-  -- Hover Doc
-  Util.nkeymap("K", "<cmd>Lspsaga hover_doc<CR>")
-
-  -- Float terminal
-  Util.nkeymap("<A-d>", "<cmd>Lspsaga open_floaterm<CR>")
-  -- if you want pass somc cli command into terminal you can do like this
-  -- open lazygit in lspsaga float terminal
-  Util.nkeymap("<A-d>", "<cmd>Lspsaga open_floaterm lazygit<CR>")
-  -- close floaterm
-  Util.tkeymap("<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]])
+  -- Util.nkeymap("<leader>ca", "<cmd>Lspsaga code_action<CR>")
+  -- Util.vkeymap("<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>")
+  -- Util.nkeymap("gh", "<cmd>Lspsaga lsp_finder<CR>")
+  -- Util.nkeymap("<leader>rn", "<cmd>Lspsaga rename<CR>")
+  -- Util.nkeymap("gd", "<cmd>Lspsaga peek_definition<CR>")
+  --
+  -- -- Show line diagnostics
+  -- Util.nkeymap("<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>")
+  --
+  -- -- Show cursor diagnostic
+  -- Util.nkeymap("<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>")
+  --
+  -- -- Diagnsotic jump can use `<c-o>` to jump back
+  -- Util.nkeymap("[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
+  -- Util.nkeymap("]e", "<cmd>Lspsaga diagnostic_jump_next<CR>")
+  --
+  -- -- Only jump to error
+  -- Util.nkeymap("[E", function()
+  --   lspsaga_diagnostic.goto_prev({ severity = diagnostic.severity.ERROR })
+  -- end)
+  -- Util.nkeymap("]E", function()
+  --   lspsaga_diagnostic.goto_next({ severity = diagnostic.severity.ERROR })
+  -- end)
+  --
+  -- -- Outline
+  -- Util.nkeymap("<leader>o", "<cmd>LSoutlineToggle<CR>")
+  --
+  -- -- Hover Doc
+  -- Util.nkeymap("K", "<cmd>Lspsaga hover_doc<CR>")
+  --
+  -- -- Float terminal
+  -- Util.nkeymap("<A-d>", "<cmd>Lspsaga open_floaterm<CR>")
+  -- -- if you want pass somc cli command into terminal you can do like this
+  -- -- open lazygit in lspsaga float terminal
+  -- Util.nkeymap("<A-d>", "<cmd>Lspsaga open_floaterm lazygit<CR>")
+  -- -- close floaterm
+  -- Util.tkeymap("<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]])
 end
 
 return M

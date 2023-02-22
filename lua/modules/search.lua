@@ -12,10 +12,12 @@ M.install = function()
     ["do"] = "./install --all",
   })
   Plug("junegunn/fzf.vim")
+  Plug("eugen0329/vim-esearch")
 
   -- General fuzzy finder
   Plug('nvim-telescope/telescope-fzf-native.nvim', {['do']='make'})
   Plug("nvim-telescope/telescope.nvim")
+
 end
 
 M.init = function()
@@ -25,7 +27,7 @@ M.init = function()
   -- Telescope
   local telescope = require('telescope')
   local telescope_builtin = require('telescope.builtin')
-  Util.nkeymap('<leader>ff', telescope_builtin.find_files)
+  -- Util.nkeymap('<leader>ff', telescope_builtin.find_files)
   Util.nkeymap('<leader>fg', telescope_builtin.live_grep)
   Util.nkeymap('<leader>fb', telescope_builtin.buffers)
   Util.nkeymap('<leader>fh', telescope_builtin.help_tags)
