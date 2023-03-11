@@ -14,6 +14,7 @@ M.install = function()
   -- Theme
   Plug("sjl/badwolf")
   Plug("olivercederborg/poimandres.nvim")
+  Plug('chriskempson/base16-vim')
 
   -- Status line
   Plug("nvim-lualine/lualine.nvim")
@@ -32,9 +33,10 @@ M.init = function()
   })
 
   require("poimandres").setup({})
-  -- cmd 'colorscheme poimandres'
   opt.background = "dark"
-  cmd 'colorscheme badwolf'
+  -- cmd 'colorscheme badwolf'
+  -- cmd 'colorscheme poimandres'
+  cmd 'colorscheme base16-monokai'
 end
 
 return M
