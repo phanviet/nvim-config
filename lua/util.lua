@@ -35,6 +35,21 @@ M.curry = function(func, num_args)
   return helper({}, num_args)
 end
 
+-- array helpers
+M.each = function(handler, array)
+  for i=1,#array do
+    handler(array[i])
+  end
+end
+
+M.map = function(handler, array)
+  local rs = {}
+  for i=1,#array do
+    rs[i] = handler(array[i])
+  end
+  return rs
+end
+
 -- General VIM key mapping
 M.keymap = function(mode, key, command, opts)
   local cmd = keymap.set

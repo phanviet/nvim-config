@@ -1,54 +1,44 @@
+local Util = require("util")
+
 local M = {}
 
-local common = require 'modules.common'
-local theme = require 'modules.theme'
-local search = require 'modules.search'
-local project = require 'modules.project'
-local tmux = require 'modules.tmux'
-local git = require 'modules.git'
-local doc = require 'modules.doc'
-local ide = require 'modules.ide'
+local module_names = {
+  'common',
+  'theme',
+  'search',
+  'project',
+  'tmux',
+  'git',
+  'doc',
+  'ide',
 
--- langs
-local web = require 'modules.lang.web'
-local javascript = require 'modules.lang.javascript'
-local ruby = require 'modules.lang.ruby'
-local clojure = require 'modules.lang.clojure'
+  -- lang
+  'lang.web',
+  'lang.javascript',
+  'lang.ruby',
+  'lang.clojure',
+}
+
+-- require all modules
+local modules = Util.map(function (name)
+  return require('modules.' .. name)
+end, module_names)
+
+
+local install_module = function (m) m.install() end
+local init_module = function (m) m.init() end
+
+local install_modules = function (ms) Util.each(install_module, ms) end
+local init_modules = function (ms) Util.each(init_module, ms) end
 
 -- Install all packages
 M.install = function ()
-  common.install()
-  theme.install()
-  search.install()
-  project.install()
-  tmux.install()
-  git.install()
-  doc.install()
-  ide.install()
-
-  -- langs
-  web.install()
-  javascript.install()
-  ruby.install()
-  clojure.install()
+  install_modules(modules)
 end
 
 -- Config and run all packages
 M.init = function ()
-  common.init()
-  theme.init()
-  search.init()
-  project.init()
-  tmux.init()
-  git.init()
-  doc.init()
-  ide.init()
-
-  -- langs
-  web.init()
-  javascript.init()
-  ruby.init()
-  clojure.init()
+  init_modules(modules)
 end
 
 return M
