@@ -60,7 +60,7 @@ M.init = function()
       enable = true,
       additional_vim_regex_highlighting = { "org" }, -- Required for spellcheck, some LaTex highlights and code block highlights that do not have ts grammar
     },
-    ensure_installed = { "org" }, -- Or run :TSUpdate org
+    ensure_installed = { "org", "markdown", "markdown_inline" }, -- Or run :TSUpdate org
   })
 
   -- Folding
