@@ -5,6 +5,7 @@ local Plug = fn['plug#']
 
 -- Install packages
 M.install = function ()
+  Plug 'Olical/conjure'
   Plug 'clojure-vim/vim-jack-in'
   Plug 'guns/vim-sexp'
   Plug 'tpope/vim-sexp-mappings-for-regular-people'

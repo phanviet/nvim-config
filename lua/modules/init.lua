@@ -1,5 +1,7 @@
 local Util = require("util")
 
+local Plug = vim.fn['plug#']
+
 local M = {}
 
 local module_names = {
