@@ -23,9 +23,7 @@ end
 -- Config
 --------------------------------------------------
 M.init = function()
-  require("transparent").setup({
-    enable = true,
-  })
+  require("transparent")
 
   require("nvim-cursor").setup({
     normalModeColor = "yellow",
@@ -36,7 +34,7 @@ M.init = function()
   opt.background = "dark"
   -- cmd 'colorscheme badwolf'
   -- cmd 'colorscheme poimandres'
-  cmd 'colorscheme base16-monokai'
+  cmd 'colorscheme base16-twilight'
 end
 
 return M
