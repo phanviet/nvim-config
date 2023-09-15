@@ -16,6 +16,7 @@ M.install = function()
   Plug("olivercederborg/poimandres.nvim")
   Plug('chriskempson/base16-vim')
   Plug('jaywilliams/vim-vwilight')
+  Plug('NLKNguyen/papercolor-theme')
 
   -- Status line
   Plug("nvim-lualine/lualine.nvim")
@@ -32,8 +33,9 @@ M.init = function()
   })
 
   require("poimandres").setup({})
-  opt.background = "dark"
-  cmd 'colorscheme vwilight'
+  opt.background = "light"
+  cmd 'colorscheme PaperColor'
+  -- cmd 'colorscheme vwilight'
   -- cmd 'colorscheme badwolf'
   -- cmd 'colorscheme poimandres'
   -- cmd 'colorscheme base16-twilight'
