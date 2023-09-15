@@ -9,7 +9,7 @@ local Plug = fn["plug#"]
 -- Install theme packages
 M.install = function()
   Plug("xiyaowong/nvim-transparent")
-  Plug("phanviet/nvim-cursor")
+  -- Plug("phanviet/nvim-cursor")
 
   -- Theme
   Plug("sjl/badwolf")
@@ -27,10 +27,10 @@ end
 M.init = function()
   require("transparent")
 
-  require("nvim-cursor").setup({
-    normalModeColor = "yellow",
-    insertModeColor = "yellow",
-  })
+  -- require("nvim-cursor").setup({
+  --   normalModeColor = "yellow",
+  --   insertModeColor = "yellow",
+  -- })
 
   require("poimandres").setup({})
   opt.background = "light"
