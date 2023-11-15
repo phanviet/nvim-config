@@ -66,7 +66,7 @@ M.init = function()
   -- Folding
   local Ufo = require("ufo")
   Util.nkeymap("zR", Ufo.openAllFolds)
-  Util.nkeymap("zM", Ufo.openAllFolds)
+  Util.nkeymap("zM", Ufo.closeAllFolds)
   Ufo.setup({
     provider_selector = function(bufnr, filetype, buftype)
       return { "treesitter", "indent" }
