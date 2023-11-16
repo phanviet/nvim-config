@@ -7,7 +7,7 @@ local HOME = os.getenv("HOME")
 g.mapleader = ","
 g.maplocalleader = " "
 g["$LANG"] = "en_US"
-g.python3_host_prog = HOME .. "/venv/bin/python"
+g.python3_host_prog = HOME .. "/.pyenv/versions/3.10.13/envs/venv-3.10.13/bin/python"
 
 opt.mouse = "a"
 opt.langmenu = "en_US"
