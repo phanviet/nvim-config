@@ -17,6 +17,7 @@ M.install = function()
   Plug('chriskempson/base16-vim')
   Plug('jaywilliams/vim-vwilight')
   Plug('NLKNguyen/papercolor-theme')
+  Plug('craftzdog/solarized-osaka.nvim')
 
   -- Status line
   Plug("nvim-lualine/lualine.nvim")
@@ -33,8 +34,9 @@ M.init = function()
   -- })
 
   require("poimandres").setup({})
-  opt.background = "light"
-  cmd 'colorscheme PaperColor'
+  opt.background = "dark"
+  cmd 'colorscheme solarized-osaka'
+  -- cmd 'colorscheme PaperColor'
   -- cmd 'colorscheme vwilight'
   -- cmd 'colorscheme badwolf'
   -- cmd 'colorscheme poimandres'

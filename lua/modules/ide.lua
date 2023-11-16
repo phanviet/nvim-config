@@ -12,7 +12,7 @@ M.install = function()
   -- Syntax
   Plug("sheerun/vim-polyglot")
   Plug("sbdchd/neoformat")
-  -- Plug("lukas-reineke/lsp-format.nvim")
+  Plug("lukas-reineke/lsp-format.nvim")
   Plug("luochen1990/rainbow")
 
   -- Testing
@@ -67,7 +67,7 @@ M.init = function()
 
   -- LSP
   --------------------------------------------------
-  -- local lspformat = require("lsp-format")
+  local lspformat = require("lsp-format")
   local mason = require("mason")
   local luasnip = require("luasnip")
   local cmp = require("cmp")
@@ -172,6 +172,7 @@ M.init = function()
     "bashls", -- bash
     "yamlls", -- yaml
     "solidity", -- solidity
+    "pyright", -- python
   }
   local diagnostic = vim.diagnostic
   local lsp = vim.lsp
@@ -186,7 +187,7 @@ M.init = function()
     api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
     -- autoformat
-    -- lspformat.on_attach(client)
+    lspformat.on_attach(client, bufnr)
 
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
